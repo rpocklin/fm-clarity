@@ -1,0 +1,29 @@
+<div class="fm-dashboard">
+
+  <h3>Suppliers</h3>
+
+  <div class="container" *ngIf="rankedSuppliersList">
+    <div class="row">
+      <table
+        class="fm-dashboard__table col-lg-8 col-md-8 col-sm-10 col-xs-12 table table-hover table-dark table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Ranking</th>
+            <th scope="col">Supplier Name</th>
+            <th scope="col">Work Order Rating</th>
+            <th scope="col">Message Rating</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let supplier of rankedSuppliersList; index as ranking">
+            <td>{{ ranking + 1 }}</td>
+            <td>{{ supplier.name }}</td>
+            <td>{{ supplier.workOrderTotalWeighting | number: '1.1' }}</td>
+            <td>{{ supplier.messagesRatioWeighting | number:   '1.1' }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
